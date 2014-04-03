@@ -1,0 +1,7 @@
+
+public function validCSVProvider()
+{
+    return new CsvFileIterator(dirname(__FILE__) . '/someCsvFile.txt');
+}
+
+$this->assertXmlStringEqualsXmlFile($someXmlFile, $resultXml);
