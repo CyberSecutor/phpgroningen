@@ -9,8 +9,9 @@
 
 namespace PHPGroningen\Math;
 
+use \PHPGroningen\Recorder;
 use \InvalidArgumentException;
-use \LogicExeption;
+use \LogicException;
 
 /**
  * A Circualr math class.
@@ -38,6 +39,14 @@ class Circle
      */
     private $diameter;
 
+    protected $recorder;
+
+    function __construct(Recorder $recorder = null) {
+        $this->recorder = isset($recorder)
+            ? $recorder
+            : new Recorder;
+    }
+
     /**
      * Setter for radius the radius for the circle.
      *
@@ -46,8 +55,15 @@ class Circle
      */
     public function setRadius($value)
     {
+        if (is_int($value) === false) {
+            throw new InvalidArgumentException('Not a int');
+        }
+
         $this->radius = $value;
         $this->diameter = $value * 2;
+
+        $this->recorder->record('radius updated');
+        $this->recorder->record('diameter updated');
 
         return $this;
     }
