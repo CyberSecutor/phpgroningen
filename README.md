@@ -1,4 +1,4 @@
-phpgroningen
+PHP user group Groningen 
 ============
 
 Experimental code for the PHP Groningen user group.
