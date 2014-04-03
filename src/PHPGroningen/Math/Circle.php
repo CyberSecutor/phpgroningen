@@ -7,7 +7,7 @@
  * @subpackage Math
  */
 
-namespace PHPGroningen\Math\Circle;
+namespace PHPGroningen\Math;
 
 use \InvalidArgumentException;
 use \LogicExeption;
